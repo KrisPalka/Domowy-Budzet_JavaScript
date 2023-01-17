@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="page_container">
+      <div class="logo common"><p></p></div>
+      <div class="output common">
+        <p class="outputParag">You can spend: <span id="output"></span> PLN</p>
+      </div>
+
+      <div class ="modal", id="modal">
+        <p id="modalText"></p>
+      </div>
+
+      <button id="reset">Reset</button>
+
+      <section>
+        <div class="section_container">
+          <div class="revenue common">
+            <h2 class="heading">Revenue</h3>
+
+            <form id="addRevenue">
+              <input type="text" class="input" placeholder="Add Revenue" id="addRevenueText">
+              <input type="number" name="" placeholder="Value" min="0" id="addRevValue">
+              <input type="submit" class="input" value="Add">
+            </form>
+
+            <hr style="height: 3px; background: gray; margin-top: 10%" />
+            
+            <ul id="listItemRev"></ul>
+            <p class="parag">Total revenue: <span id="totalRevenue"></span> PLN</p>
+
+          </div>
+
+          <div class="expenses common">
+            <h2 class="heading">Expenses</h3>
+
+            <form id="addExpenses">
+              <input type="text" class="input" placeholder="Add Expense" id="addExpenseText">
+              <input type="number" name="" min="0"  placeholder="Value" id="addExpValue">
+              <input type="submit" class="input" value="Add">
+            </form>
+
+            <hr style="height: 3px; background: gray; margin-top: 10%" />
+            <ul id="listItemExp"></ul>
+            <p class="parag">Total expenses: <span id="totalExpenses"></span> PLN</p>
+          </div>
+
+        </div>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

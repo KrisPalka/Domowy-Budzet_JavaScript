@@ -1,0 +1,122 @@
+.page_container {
+  width: 95%;
+  height: 100vh;
+}
+.common {
+  border: 1px solid;
+  margin: 3% auto;
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  background-image: url("../assets/budget.png");
+  background-position: center;
+  background-size: 100%;
+}
+.output {
+  width: 70%;
+  height: 40px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(190, 193, 197);
+}
+
+/*MAIN SECTION STYLES*/
+
+.outputParag {
+  font-weight: 900;
+}
+
+.modal {
+  min-width: 100px;
+  width: 90%;
+  height: 60px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: 0 5%;
+  min-height: 50px;
+  background-color: lightblue;
+  border: 1px solid;
+}
+
+#modalText {
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+
+#reset {
+  width: 500px;
+  height: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_container {
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.revenue {
+  width: 250px;
+  height: 300px;
+  background-color: rgb(185, 215, 185);
+}
+.expenses {
+  width: 250px;
+  height: 300px;
+  background-color: rgb(172, 146, 146);
+}
+.heading {
+  margin-top: 10px;
+  font-weight: 900;
+  text-align: center;
+  font-size: 20px;
+}
+#addRevenueText,
+#addExpenseText {
+  width: 100px;
+  margin-top: 20px;
+}
+#addRevValue,
+#addExpValue {
+  width: 50px;
+}
+
+.dltBtn {
+  background-color: rgb(188, 71, 71);
+  padding: 2px;
+  margin-left: 5px;
+  margin-top: 2px;
+  width: 32px;
+}
+.editBtn {
+  background-color: lightblue;
+  padding: 2px;
+  margin-left: 10px;
+  margin-top: 2px;
+  width: 32px;
+}
+
+.saveBtn {
+  background-color: green;
+  padding: 2px;
+  margin-left: 10px;
+  margin-top: 2px;
+  width: 42px;
+}
+.deleteBtn {
+  display: none;
+}
+
+.parag {
+  font-weight: 700;
+}
