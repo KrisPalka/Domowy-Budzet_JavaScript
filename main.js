@@ -1,4 +1,4 @@
-//OVERALL SECTION//
+//REVENUE VARIABLES//
 const addRevenue = document.getElementById("addRevenue");
 const addRevText = document.getElementById("addRevenueText");
 const revenueList = document.getElementById("listItemRev");
@@ -7,7 +7,8 @@ const output = document.getElementById("output");
 const totalRevenue = document.getElementById("totalRevenue");
 const incomeArray = [];
 const expenseArray = [3];
-//let isEditable = false;
+
+//EXPENSES VARIABLES//
 
 //REVENUE SECTION//
 addRevenue.addEventListener("submit", (event) => {
@@ -28,25 +29,24 @@ addRevenue.addEventListener("submit", (event) => {
   sumRevenue();
   outputVal();
   toggleModal();
-  //  return revenueElem;
 });
 
 function createEditButton(revenueElem) {
   const editBtn = document.createElement("button");
   editBtn.innerText = "Edit";
-  //isEditable = true;
   editBtn.classList.add("editBtn");
-  //if (!isEditable) {
   editBtn.addEventListener("click", edit);
   return editBtn;
 
-  console.log(revenueElem);
-
   function edit(event) {
     event.preventDefault();
+    editBtn.style.display = "none";
+
+    const amountLi = revenueElem.querySelector("#revenueNumber").textContent;
     revenueElem.querySelector("#revenueText").contentEditable = true;
     revenueElem.querySelector("#revenueNumber").contentEditable = true;
     editBtn.style.backgroundColor = "lightgrey";
+
     const saveBtn = document.createElement("button");
     saveBtn.id = "saveButton";
     saveBtn.innerText = "Save";
@@ -56,21 +56,24 @@ function createEditButton(revenueElem) {
 
     function save(event) {
       event.preventDefault();
+      const revenueLi = revenueElem.querySelector("#revenueNumber").textContent;
 
-      revenueElem.querySelector("#revenueText").contentEditable = false;
-      revenueElem.querySelector("#revenueNumber").contentEditable = false;
-      editBtn.style.backgroundColor = "lightblue";
-      saveBtn.classList.remove("saveBtn");
-      saveBtn.classList.add("deleteBtn");
+      if (revenueLi > 0 || !isNaN(revenueLi)) {
+        revenueElem.querySelector("#revenueText").contentEditable = false;
+        revenueElem.querySelector("#revenueNumber").contentEditable = false;
+        editBtn.style.backgroundColor = "lightblue";
+        saveBtn.classList.remove("saveBtn");
+        saveBtn.classList.add("deleteBtn");
+        editBtn.style.display = "inline-block";
 
-      const revenueNumber = addRevNumber.value;
-      incomeArray.push(Number(revenueNumber));
-      console.log(incomeArray);
-      sumRevenue();
-      outputVal();
-      toggleModal();
-      // isEditable = false;
-      //}
+        const liResult = Number(revenueLi) - Number(amountLi);
+        incomeArray.push(liResult);
+        sumRevenue();
+        outputVal();
+        toggleModal();
+      } else {
+        alert("PLEASE ENTER NUMBER");
+      }
     }
   }
 }
@@ -137,8 +140,6 @@ reset.addEventListener("click", () => {
   incomeArray.length = 0;
   totalRevenue.innerText = "";
   revenueList.innerHTML = "";
-  const allLi = document.querySelectorAll("#listItemRev li");
-  allLi.removeChild();
 });
 
 //EXPENSES SECTION//

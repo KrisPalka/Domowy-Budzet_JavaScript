@@ -60,20 +60,24 @@
 
 .section_container {
   width: 500px;
-  height: 300px;
+  height: auto;
   margin: 0 auto;
   display: flex;
 }
 
 .revenue {
   width: 250px;
-  height: 300px;
+  height: 100%;
   background-color: rgb(185, 215, 185);
+  padding-left: 2%;
+  padding-bottom: 3%;
 }
 .expenses {
   width: 250px;
-  height: 300px;
+  height: auto;
   background-color: rgb(172, 146, 146);
+  padding-left: 2%;
+  padding-bottom: 3%;
 }
 .heading {
   margin-top: 10px;
@@ -92,26 +96,29 @@
 }
 
 .dltBtn {
-  background-color: rgb(188, 71, 71);
+  background-color: rgb(231, 24, 24);
   padding: 2px;
   margin-left: 5px;
   margin-top: 2px;
   width: 32px;
+  border: none;
 }
 .editBtn {
-  background-color: lightblue;
+  background-color: rgb(9, 173, 227);
   padding: 2px;
   margin-left: 10px;
   margin-top: 2px;
   width: 32px;
+  border: none;
 }
 
 .saveBtn {
-  background-color: green;
+  background-color: rgb(9, 156, 9);
   padding: 2px;
   margin-left: 10px;
   margin-top: 2px;
   width: 42px;
+  border: none;
 }
 .deleteBtn {
   display: none;
@@ -119,4 +126,16 @@
 
 .parag {
   font-weight: 700;
+}
+.itemBox {
+  padding-bottom: 4%;
+  width: 100%;
+  min-height: 165px;
+}
+.line {
+  width: 95%;
+  height: 2px;
+  margin-top: 6%;
+  margin-bottom: 3%;
+  background-color: rgb(63, 61, 61);
 }

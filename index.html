@@ -22,7 +22,10 @@
       <button id="reset">Reset</button>
 
       <section>
+
+        <!--REVENUE SECTION-->
         <div class="section_container">
+
           <div class="revenue common">
             <h2 class="heading">Revenue</h3>
 
@@ -32,13 +35,16 @@
               <input type="submit" class="input" value="Add">
             </form>
 
-            <hr style="height: 3px; background: gray; margin-top: 10%" />
-            
-            <ul id="listItemRev"></ul>
-            <p class="parag">Total revenue: <span id="totalRevenue"></span> PLN</p>
+            <div class="line"></div>
 
+            <div class ="itemBox">
+              <ul id="listItemRev"></ul>
+            </div>
+
+            <p class="parag">Total revenue: <span id="totalRevenue"></span> PLN</p>
           </div>
 
+        <!--EXPENSES SECTION-->
           <div class="expenses common">
             <h2 class="heading">Expenses</h3>
 
@@ -48,13 +54,18 @@
               <input type="submit" class="input" value="Add">
             </form>
 
-            <hr style="height: 3px; background: gray; margin-top: 10%" />
-            <ul id="listItemExp"></ul>
+            <div class="line"></div>
+
+            <div class ="itemBox">
+              <ul id="listItemExp"></ul>
+            </div>
+
             <p class="parag">Total expenses: <span id="totalExpenses"></span> PLN</p>
           </div>
 
         </div>
       </section>
+
     </div>
     <script src="main.js"></script>
   </body>
