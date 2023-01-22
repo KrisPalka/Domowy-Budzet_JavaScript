@@ -30,8 +30,8 @@
             <h2 class="heading">Revenue</h3>
 
             <form id="addRevenue">
-              <input type="text" class="input" placeholder="Add Revenue" id="addRevenueText">
-              <input type="number" name="" placeholder="Value" min="0" id="addRevValue">
+              <input type="text" class="input" placeholder="Add Revenue" maxlength="18" id="addRevenueText">
+              <input type="number" name="" placeholder="Value" min="0" max="99999" id="addRevValue">
               <input type="submit" class="input" value="Add">
             </form>
 
@@ -49,15 +49,15 @@
             <h2 class="heading">Expenses</h3>
 
             <form id="addExpenses">
-              <input type="text" class="input" placeholder="Add Expense" id="addExpenseText">
-              <input type="number" name="" min="0"  placeholder="Value" id="addExpValue">
+              <input type="text" class="input" placeholder="Add Expense" maxlength="18" id="addExpenseText">
+              <input type="number" name="" min="0" max="99999" placeholder="Value" id="addExpenseValue">
               <input type="submit" class="input" value="Add">
             </form>
 
             <div class="line"></div>
 
             <div class ="itemBox">
-              <ul id="listItemExp"></ul>
+              <ul id="listItemExpenses"></ul>
             </div>
 
             <p class="parag">Total expenses: <span id="totalExpenses"></span> PLN</p>
