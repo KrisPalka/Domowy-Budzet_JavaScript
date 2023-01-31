@@ -23,7 +23,7 @@
   align-items: center;
   background-color: rgb(190, 193, 197);
 }
-#reset {
+.reset {
   width: 500px;
   height: 20px;
   margin: 0 auto;
@@ -66,20 +66,18 @@
   text-align: center;
   font-size: 20px;
 }
-#addRevenueText,
-#addExpenseText {
+.inputTxt {
   width: 100px;
   margin-top: 20px;
 }
-#addRevValue,
-#addExpenseValue {
+.inputNr {
   width: 50px;
 }
 
 .dltBtn {
   background-color: rgb(231, 24, 24);
   padding: 1px;
-  margin-right: 5px;
+  margin-right: 10px;
   margin-top: 2px;
   width: 32px;
   border: none;
@@ -142,14 +140,14 @@
   z-index: 100;
 }
 
-#modalText {
+.modalText {
   font-size: 24px;
   font-weight: 900;
   text-align: center;
 }
 
-#listItemRev li,
-#listItemExpenses li {
+.listItemRev li,
+.listItemExpenses li {
   margin: 5px;
   list-style-type: disc;
 }
