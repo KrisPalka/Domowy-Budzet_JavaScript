@@ -23,7 +23,7 @@ addRevenue.addEventListener("submit", (event) => {
   const revenueElem = document.createElement("li");
   const revenueNumber = addRevNumber.value;
   const createEditBtn = createEditButton(revenueElem);
-  const createDltBtn = createDeleteBtn(revenueNumber);
+  const createDltBtn = createDeleteBtn(revenueElem);
 
   incomeArray.push(Number(revenueNumber)); // - Pushing input value dynamically to array
 
@@ -36,30 +36,6 @@ addRevenue.addEventListener("submit", (event) => {
   toggleModal(); // budget status notification
 });
 
-//DELETE BUTTON FOR REVENUES
-function createDeleteBtn(revenueNumber) {
-  const dltBtn = document.createElement("button");
-  dltBtn.innerText = "Del";
-  dltBtn.classList.add("dltBtn");
-  dltBtn.addEventListener("click", deleteParent);
-  return dltBtn;
-
-  function deleteParent(event) {
-    event.preventDefault();
-    revenueList.removeChild(event.target.parentNode);
-    incomeArray.push(Number(-revenueNumber));
-    sumRevenue();
-    outputVal();
-    toggleModal();
-  }
-}
-//REVENUES ARRAY SUM
-function sumRevenue() {
-  const totalRev = incomeArray.reduce((acc, element) => {
-    return acc + element;
-  });
-  totalRevenue.innerText = totalRev;
-}
 
 //EDIT BUTTON + SAVE FOR REVENUES
 function createEditButton(revenueElem) {
@@ -88,7 +64,7 @@ function createEditButton(revenueElem) {
       event.preventDefault();
       const revenueLi = revenueElem.querySelector("#revenueNumber").textContent;
 
-      if (revenueLi > 0 || !isNaN(revenueLi)) {
+      if (revenueLi > 0 && !isNaN(revenueLi)) {
         revenueElem.querySelector("#revenueText").contentEditable = false;
         revenueElem.querySelector("#revenueNumber").contentEditable = false;
         saveBtn.classList.remove("saveBtn");
@@ -101,11 +77,41 @@ function createEditButton(revenueElem) {
         outputVal();
         toggleModal();
       } else {
-        alert("PLEASE ENTER NUMBER");
+        alert("PLEASE ENTER NUMBER GREATER THAN 0");
       }
+      
     }
   }
 }
+
+//DELETE BUTTON FOR REVENUES
+function createDeleteBtn(revenueElem) {
+  const dltBtn = document.createElement("button");
+  dltBtn.innerText = "Del";
+  dltBtn.classList.add("dltBtn");
+  dltBtn.addEventListener("click", deleteParent);
+  return dltBtn;
+
+  function deleteParent(event) {
+    const amountLi = revenueElem.querySelector("#revenueNumber").textContent;
+    event.preventDefault();
+    revenueList.removeChild(event.target.parentNode);
+    incomeArray.push(Number(-amountLi));
+  
+    sumRevenue();
+    outputVal();
+    toggleModal();
+  }
+}
+
+//REVENUES ARRAY SUM
+function sumRevenue() {
+  const totalRev = incomeArray.reduce((acc, element) => {
+    return acc + element;
+  });
+  totalRevenue.textContent = totalRev;
+}
+
 
 //EXPENSES INPUT FORM SECTION//
 addExpense.addEventListener("submit", (event) => {
@@ -114,7 +120,7 @@ addExpense.addEventListener("submit", (event) => {
   const expensesElem = document.createElement("li");
   const expensesNumber = addExpNumber.value;
   const createEditBtnExp = createEditBtn(expensesElem);
-  const createDltBtn = createDelBtnExp(expensesNumber);
+  const createDltBtn = createDelBtnExp(expensesElem);
 
   expenseArray.push(Number(expensesNumber)); // - Pushing Expenses value dynamically to array
 
@@ -135,23 +141,6 @@ function sumExpenses() {
   totalExpense.innerText = totalExp;
 }
 
-//DELETE BUTTON FOR EXPENSES
-function createDelBtnExp(expensesNumber) {
-  const dltBtn = document.createElement("button");
-  dltBtn.innerText = "Del";
-  dltBtn.classList.add("dltBtn");
-  dltBtn.addEventListener("click", deleteParent);
-  return dltBtn;
-
-  function deleteParent(event) {
-    event.preventDefault();
-    expenseList.removeChild(event.target.parentNode);
-    expenseArray.push(Number(-expensesNumber));
-    sumExpenses();
-    outputVal();
-    toggleModal();
-  }
-}
 //EDIT BUTTON + SAVE FOR EXPENSES
 function createEditBtn(expensesElem) {
   const editBtn = document.createElement("button");
@@ -164,7 +153,7 @@ function createEditBtn(expensesElem) {
     event.preventDefault();
     editBtn.style.display = "none";
     const amountLiExp =
-      expensesElem.querySelector("#expenseNumber").textContent;
+    expensesElem.querySelector("#expenseNumber").textContent;
     expensesElem.querySelector("#expenseText").contentEditable = true;
     expensesElem.querySelector("#expenseNumber").contentEditable = true;
 
@@ -180,8 +169,8 @@ function createEditBtn(expensesElem) {
       const expenseLi =
         expensesElem.querySelector("#expenseNumber").textContent;
 
-      if (expenseLi > 0 || !isNaN(expenseLi)) {
-        expensesElem.querySelector("#expenseText").contentEditable = false;
+      if (expenseLi > 0 && !isNaN(expenseLi)) {
+        expensesElem.querySelector("#expenseText").contentEditable = false; 
         expensesElem.querySelector("#expenseNumber").contentEditable = false;
         saveBtn.classList.remove("saveBtn");
         saveBtn.classList.add("deleteBtn");
@@ -193,11 +182,32 @@ function createEditBtn(expensesElem) {
         outputVal();
         toggleModal();
       } else {
-        alert("PLEASE ENTER NUMBER");
+        alert("PLEASE ENTER NUMBER GREATER THAN 0");
       }
     }
   }
 }
+
+//DELETE BUTTON FOR EXPENSES
+function createDelBtnExp(expensesElem) {
+  const dltBtn = document.createElement("button");
+  dltBtn.innerText = "Del";
+  dltBtn.classList.add("dltBtn");
+  dltBtn.addEventListener("click", deleteParent);
+  return dltBtn;
+
+  function deleteParent(event) {
+    event.preventDefault();
+    const expenseLi =
+        expensesElem.querySelector("#expenseNumber").textContent;
+    expenseList.removeChild(event.target.parentNode);
+    expenseArray.push(Number(-expenseLi));
+    sumExpenses();
+    outputVal();
+    toggleModal();
+  }
+}
+
 //RESET BUTTON MODULE
 const reset = document.getElementById("reset");
 reset.addEventListener("click", () => {
