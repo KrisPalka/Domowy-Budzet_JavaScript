@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
-  </head>
-  <body>
-    <div class="page_container">
-      <div class="logo common"><p></p></div>
-      <div class="output common">
-        <p class="outputParag">You can spend: <span id="output"></span> PLN</p>
-      </div>
 
-      <div class ="modal", id="modal">
-        <p class= "modalText", id="modalText"></p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/reset.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
 
-      <button class ="reset", id="reset">Reset</button>
+<body>
+  <div class="page_container">
+    <div class="logo common">
+      <p></p>
+    </div>
+    <div class="output common">
+      <p class="outputParag"><span id="outputText"></span><span id="output"></span> PLN</p>
+    </div>
 
-      <section>
+    <div class="modal" , id="modal">
+      <p class="modalText" , id="modalText"></p>
+    </div>
 
-        <!--REVENUE SECTION-->
-        <div class="section_container">
+    <button class="reset" , id="reset">Reset</button>
 
-          <div class="revenue common">
-            <h2 class="heading">Revenue</h3>
+    <section>
+
+      <!--REVENUE SECTION-->
+      <div class="section_container">
+
+        <div class="revenue common">
+          <h2 class="heading">Revenue</h3>
 
             <form id="addRevenue">
               <input type="text" class="inputTxt" placeholder="Add Revenue" maxlength="18" id="addRevenueText">
@@ -37,16 +41,16 @@
 
             <div class="line"></div>
 
-            <div class ="itemBox">
-              <ul class="listItemRev", id="listItemRev"></ul>
+            <div class="itemBox">
+              <ul class="listItemRev" , id="listItemRev"></ul>
             </div>
 
             <p class="parag">Total revenue: <span id="totalRevenue"></span> PLN</p>
-          </div>
+        </div>
 
         <!--EXPENSES SECTION-->
-          <div class="expenses common">
-            <h2 class="heading">Expenses</h3>
+        <div class="expenses common">
+          <h2 class="heading">Expenses</h3>
 
             <form id="addExpenses">
               <input type="text" class="inputTxt" placeholder="Add Expense" maxlength="18" id="addExpenseText">
@@ -56,17 +60,18 @@
 
             <div class="line"></div>
 
-            <div class ="itemBox">
-              <ul class="listItemExpenses", id="listItemExpenses"></ul>
+            <div class="itemBox">
+              <ul class="listItemExpenses" , id="listItemExpenses"></ul>
             </div>
 
             <p class="parag">Total expenses: <span id="totalExpenses"></span> PLN</p>
-          </div>
-
         </div>
-      </section>
 
-    </div>
-    <script src="main.js"></script>
-  </body>
+      </div>
+    </section>
+
+  </div>
+  <script src="main.js"></script>
+</body>
+
 </html>
