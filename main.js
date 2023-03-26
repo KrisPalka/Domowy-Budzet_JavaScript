@@ -1,3 +1,5 @@
+import {toggleModal} from "./budgetNotification.js";
+
 const output = document.getElementById("output");
 document.getElementById("outputText").innerText = "You can spend ";
 
@@ -39,12 +41,13 @@ addRevenue.addEventListener("submit", (event) => {
 });
 
 //EDIT BUTTON + SAVE FOR REVENUES
-function createEditButton(revenueElem) {
+function createEditButton(revenueElem, editModule ) {
     const editBtn = document.createElement("button");
     editBtn.innerText = "Edit";
     editBtn.classList.add("editBtn");
     editBtn.addEventListener("click", edit);
     return editBtn;
+
 
     function edit(event) {
         event.preventDefault();
@@ -109,7 +112,7 @@ function createDeleteBtn(revenueElem) {
 function sumRevenue() {
     const totalRev = incomeArray.reduce((acc, element) => {
         return acc + element;
-    });
+    }, 0);
     totalRevenue.textContent = totalRev;
 }
 
@@ -209,7 +212,7 @@ function createDelBtnExp(expensesElem) {
 }
 
 //TOTAL OUTPUT RESULT
-function outputVal() {
+export function outputVal() {
     const calcRev = incomeArray.reduce((acc, element) => {
         return acc + element;
     });
@@ -246,25 +249,3 @@ function outputText() {
         outputText.innerText = "YOUR BALANCE IS NEGATIVE ";
     }
 }
-
-//BUDGET STATUS NOTIFICATION FOR 3s
-const toggleModal = () => {
-    const modal = document.getElementById("modal");
-    modal.style.display = "flex";
-    const modalText = document.getElementById("modalText");
-    if (outputVal() > 0) {
-        modalText.innerText = "YOU CAN SPEND " + outputVal() + " PLN";
-        modal.style.backgroundColor = "lightgreen";
-    } else if (outputVal() === 0) {
-        modalText.innerText = "BALANCE IS 0";
-        modal.style.backgroundColor = "lightgrey";
-    } else {
-        modalText.innerText = "YOUR BALANCE IS NEGATIVE " + outputVal() + " PLN";
-        modal.style.backgroundColor = "red";
-        document.body.style.backgroundColor = "red";
-    }
-    setTimeout(() => {
-        modal.style.display = "none";
-        document.body.style.backgroundColor = "white";
-    }, 3000);
-};
